@@ -198,15 +198,61 @@ console.log("Even Dishes: ", evenNumber);
 //5. Create a function that will return dishes whose ingredients array is "tomato" and "cheese".
 //Filter
 
+function findIngredients(){
+  let results = dishes.filter (function (el) {
+    if (el.ingredients.includes("tomato") && el.ingredients.includes("cheese")) {
+      return true;
+    }
+  });
+
+  return results
+}
+
+console.log("Tomato and Cheese: ", findIngredients())
+
 //6. Create a function that will return an array of only the names of the cuisine types. Ie ['Italian', 'Mexican', ...]
 //Map
+
+let cuisineName = dishes.map(function(el){
+  return el.name
+})
+
+
+
+console.log("The name of each cuisine is: ", cuisineName)
 
 //7. Create a function that will append the cuisine type to the start of the dish's name. Ie, "Italian Pizza"
 //Map
 
+let fullCuisineName = dishes.map(function(el){
+  return el.cuisine + " " + el.name
+})
+
+console.log("The cuisine includes: ", fullCuisineName)
 //8. Create a function that will append the cuisine type to the start of the dish's name. Then, return only the Vegetarian dish objects. 
 //This function should return objects 11-13 with their names changed to "Vegetarian Lasagna", "Vegetarian Falafel", "Vegetarian Chili"
 //Map, Filter
+
+function onlyVeggies() {
+  let results = dishes.filter(function (el) {
+    if (el.cuisine === "Vegetarian") {
+      return true
+    }
+  });
+  return results
+}
+
+let onlyVeggiesResults = onlyVeggies()
+
+function vegetarianName(objects){
+  let results = objects.map(function(el){
+    return el.cuisine + " " + el.name
+  });
+  return results
+}
+
+
+console.log("The vegetarian cuisines include: ", vegetarianName(onlyVeggiesResults));
 
 // <<<<<<<<<<<<<<<<< BONUS <<<<<<<<<<<<<<<<<
 //9. Create a function that will return dishes whose ingredients array INCLUDES "chickpea".
